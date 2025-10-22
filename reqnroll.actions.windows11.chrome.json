@@ -1,0 +1,12 @@
+{
+  "selenium": {
+    "browser": "Chrome",
+    "capabilities": {
+      "platform": "Windows 11",
+      "version": "latest-4",
+      "build": "[Demo - 1] ReqNRoll on LambdaTest",
+      "project": "ReqNRoll Demo",
+      "selenium_version": "3.141.59"
+    }
+  }
+}
