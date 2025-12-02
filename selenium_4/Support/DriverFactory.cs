@@ -54,11 +54,11 @@ namespace selenium_4.Support
 
         private static IWebDriver CreateCloudDriver(string scenarioName)
         {
-            string userName = Environment.GetEnvironmentVariable("LT_USERNAME")
-                ?? throw new InvalidOperationException("LT_USERNAME not set");
+            string userName = Environment.GetEnvironmentVariable("LT_USERNAME") == null ? 
+                            "LT_USERNAME" : Environment.GetEnvironmentVariable("LT_USERNAME");
 
-            string accessKey = Environment.GetEnvironmentVariable("LT_ACCESS_KEY")
-                ?? throw new InvalidOperationException("LT_ACCESS_KEY not set");
+            string accessKey = Environment.GetEnvironmentVariable("LT_ACCESS_KEY") == null ?
+                            "LT_ACCESS_KEY" : Environment.GetEnvironmentVariable("LT_ACCESS_KEY");
 
             var gridUrl = new Uri($"https://{userName}:{accessKey}@hub.lambdatest.com/wd/hub");
 
