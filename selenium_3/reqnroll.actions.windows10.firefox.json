@@ -1,0 +1,12 @@
+{
+  "selenium": {
+    "disabled": true,
+    "browser": "Firefox",
+    "capabilities": {
+      "platform": "macOS Ventura",
+      "version": "latest",
+      "build": "[Reqnroll Selenium 3.14] Firefox: ReqNRoll on LambdaTest",
+      "project": "ReqNRoll Demo"
+    }
+  }
+}

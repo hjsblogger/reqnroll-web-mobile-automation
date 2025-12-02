@@ -1,12 +1,13 @@
 # Define variables
 DOTNET := dotnet
 REQNROLL_PROJECT := reqnroll.cloud.sln
-PROJECT_NAME := Reqnroll mobile and web automation
+PROJECT_NAME := [Selenium 3.14] Reqnroll mobile and web automation
 
 .PHONY: clean
 clean:
 	@echo "Cleaning up..."
 	- $(DOTNET) clean
+	- rm -rf bin obj
 
 .PHONY: build
 build:
@@ -14,7 +15,7 @@ build:
 	@echo "Set env vars LT_USERNAME & LT_ACCESS_KEY"
 	# Procure Username and AccessKey from https://accounts.lambdatest.com/security
 	export LT_USERNAME=himanshuj
-	export LT_ACCESS_KEY=LT_Eky5E
+	export LT_ACCESS_KEY=LT_Eky
 	- $(DOTNET) build $(REQNROLL_PROJECT)
 
 .PHONY: test

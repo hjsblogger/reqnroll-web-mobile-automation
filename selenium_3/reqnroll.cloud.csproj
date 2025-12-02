@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- As Reqnroll supports .NET 8.0 hence, we upgraded the project -->
+    <!-- More details - https://reqnroll.net/news/2024/02/from-specflow-to-reqnroll-why-and-how/ -->
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.0.1" />
+    <!-- The Actions Package, including Reqnroll.SpecFlowCompatibility.Actions.LambdaTest-->
+    <!-- are only compataible with Selenium 3.141-->
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="Reqnroll.SpecFlowCompatibility.Actions.LambdaTest" Version="0.2.6" />
+    <PackageReference Include="Reqnroll.NUnit" Version="2.4.1" />
+    <PackageReference Include="nunit" Version="4.4.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="5.2.0" />
+    <PackageReference Include="FluentAssertions" Version="8.8.0" />
+  </ItemGroup>
+</Project>

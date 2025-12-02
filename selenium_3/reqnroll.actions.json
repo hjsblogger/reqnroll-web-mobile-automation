@@ -1,5 +1,6 @@
 {
   "selenium": {
+    "disabled": true,
     "defaultTimeout": 60,
     "pollingInterval": 5,
     "lambdatest": {
