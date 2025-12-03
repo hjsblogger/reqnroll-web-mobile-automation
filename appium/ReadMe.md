@@ -26,7 +26,7 @@ source venv/bin/activate
 
 You can fetch the LambdaTest Credentials from the [LambdaTest Profile Section](https://accounts.lambdatest.com/security/username-accesskey) section.
 
-Update the LambdaTest Credentials - [LT_USERNAME](https://github.com/hjsblogger/reqnroll-web-mobile-automation/blob/main/Makefile#L16) and [LT_ACCESS_KEY](https://github.com/hjsblogger/reqnroll-web-mobile-automation/blob/main/Makefile#L16) in Makefile.
+Update the LambdaTest Credentials - [LT_USERNAME](https://github.com/hjsblogger/reqnroll-web-mobile-automation/blob/main/appium/Makefile#L17) and [LT_ACCESS_KEY](https://github.com/hjsblogger/reqnroll-web-mobile-automation/blob/main/appium/Makefile#L18) in Makefile.
 
 Alternatively, you can also export the environment variables *LT_USERNAME* and *LT_ACCESS_KEY* by triggering the following commands on the terminal:
 
@@ -53,6 +53,26 @@ set LT_ACCESS_KEY=LT_ACCESS_KEY
 
 **Step 4**
 
+For the testing, we are using the [Proverbial App (apk)](https://prod-mobile-artefacts.lambdatest.com/assets/docs/proverbial_android.apk) from LambdaTest. The app needs to be uploaded to the LambdaTest cloud storage. Run the below command for uploading the app to the cloud:
+
+Note: Please replace the LT_USERNAME and LT_ACCESS_KEY with the actual LambdaTest crendentials that are available in the [LambdaTest Profile Section](https://accounts.lambdatest.com/security/username-accesskey) section
+
+```bash
+curl -u "LT_USERNAME:LT_ACCESS_KEY" -X POST "https://manual-api.lambdatest.com/app/upload/realDevice" -F "url=https://prod-mobile-artefacts.lambdatest.com/assets/docs/proverbial_android.apk" -F "name=proverbial-android" -F "custom_id=sampleName" -F "storage=url" -F "visibility=individual"
+```
+
+If the command execution is successful, you would see a APP ID in the command output:
+
+<img width="1413" height="104" alt="Image" src="https://github.com/user-attachments/assets/eb8ae7b8-59ab-4b8e-bb9b-b031e40426fa" />
+
+You would also see the app named 'proverbial-android' in the [App Live App Dashboard](https://applive.lambdatest.com/app)
+
+<img width="1186" height="749" alt="Image" src="https://github.com/user-attachments/assets/50b7db8d-196a-4610-b4b6-e7d5729e0dfe" />
+
+Now that the app is available for testing, let's execute the other make commands
+
+**Step 5**
+
 Run the *make clean* command on the terminal to clean the temporary files
 
 ```bash
@@ -71,21 +91,17 @@ Trigger the command ```make build``` on the terminal to build the automation pro
 
 Trigger the command ```make reqnroll-automation-test``` to run the Reqnroll tests on the LambdaTest platform
 
-<img width="1411" height="454" alt="Image" src="https://github.com/user-attachments/assets/4a02e4f6-98f6-4a0c-ad1a-4920057653f4" />
+<img width="1290" height="111" alt="Image" src="https://github.com/user-attachments/assets/2702de42-b98e-419d-9333-6c24e4109ffb" />
 
-<img width="1411" height="409" alt="Image" src="https://github.com/user-attachments/assets/a132c003-64f5-4a71-a8e2-49c173248d9d" />
+<img width="692" height="486" alt="Image" src="https://github.com/user-attachments/assets/c0faf126-fde1-4f88-baa2-10956067e130" />
+
+<img width="758" height="485" alt="Image" src="https://github.com/user-attachments/assets/17ecbb03-6395-4654-bebf-e91fc110c51e" />
 
 **Step 7**
 
-Navigate to the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/) to check the status of the test execution:
+Navigate to the [LambdaTest Automation Dashboard](https://automation.lambdatest.com/) to check the status of the test execution. As seen below, all the scenarios that are a part of respective .feature(s) files successfuly executed on LambdaTest.
 
-<img width="1207" height="879" alt="Image" src="https://github.com/user-attachments/assets/f8e86e6e-5b29-444a-88b1-3d72fddb91ba" />
-
-As seen below, all the scenarios that are a part of respective .feature(s) files successfuly executed on LambdaTest.
-
-<img width="1207" height="879" alt="Image" src="https://github.com/user-attachments/assets/5215a914-d670-46b7-9d5a-c75423ba7d37" />
-
-<img width="1207" height="879" alt="Image" src="https://github.com/user-attachments/assets/9dcef43e-0e6c-4d1f-948f-4aff9b4344db" />
+<img width="1186" height="749" alt="Image" src="https://github.com/user-attachments/assets/0eec55e7-fc55-4d9c-a22d-f0c4f292344b" />
 
 ## Have feedback or need assistance?
 Feel free to fork the repo and contribute to make it better! Email to [himanshu[dot]sheth[at]gmail[dot]com](mailto:himanshu.sheth@gmail.com) for any queries or ping me on the following social media sites:
