@@ -67,6 +67,7 @@ namespace selenium_4.Support
                 { "build", "[Selenium 4] ReqNRoll demo on LambdaTest" },
                 { "project", "Reqnroll_Selenium4_Demo" },
                 { "w3c", true },
+                { "selenium_version", "4.38.0" },
                 { "sessionName", scenarioName },
                 { "platformName", "Windows 11" }
             };
