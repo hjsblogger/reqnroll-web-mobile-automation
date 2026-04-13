@@ -28,8 +28,26 @@ namespace selenium_4.Support
         [AfterScenario]
         public void tearDown()
         {
+            var platform = Environment.GetEnvironmentVariable("EXEC_PLATFORM")?.ToLower()
+                    ?? "local";
+
             if (_scenarioContext.TryGetValue("driver", out IWebDriver driver))
             {
+                if (platform == "cloud")
+                {
+                    if (_scenarioContext.TestError == null)
+                    {
+                        ((IJavaScriptExecutor)driver).ExecuteScript(
+                            "lambda-status=passed"
+                        );
+                    }
+                    else
+                    {
+                        ((IJavaScriptExecutor)driver).ExecuteScript(
+                            "lambda-status=failed"
+                        );
+                    }
+                }
                 driver.Quit();
             }
         }
